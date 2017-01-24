@@ -36,22 +36,25 @@ LinkedList.prototype.remove = function (index) {
   if (index < 0 || index >= this.length) {
     throw new Error('Index must be greater than 0 and less than list length');
   }
-  if (index === 0) {
-    var temp = this.head;
-    this.head = this.head.next;
-    temp = null;
-  } else {
-    var current = this.head;
-    var previous;
-    while (index > 0) {
-      previous = current;
-      current = current.next;
-      index--;
-    }
+  else {
+    if (index === 0) {
+      var temp = this.head;
+      this.head = this.head.next;
+      temp = null;
+    } else {
+      var current = this.head;
+      var previous;
+      while (index > 0) {
+        previous = current;
+        current = current.next;
+        index--;
+      }
 
-    previous.next = current.next;
-    current = null;
+      previous.next = current.next;
+      current = null;
+    }
   }
+  this.length--;
 }
 
 LinkedList.prototype.getItem = function (index) {
