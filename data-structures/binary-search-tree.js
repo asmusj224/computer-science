@@ -226,7 +226,3 @@ function findMax(root) {
 
   return data;
 }
-
-var t = new BinaryTree();
-t.add(1);
-console.log(t.contains(1));
